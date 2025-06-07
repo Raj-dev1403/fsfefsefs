@@ -1,0 +1,19 @@
+{
+  "content": [
+    {
+      "path": "ContentInfo/winwing-wwtwasm/Thumbnail.jpg",
+      "size": 33679,
+      "date": 133547871047378651
+    },
+    {
+      "path": "modules/WWTMsfsWasm.wasm",
+      "size": 353268,
+      "date": 133736073651786336
+    },
+    {
+      "path": "modules/WWTWasm.wasm",
+      "size": 2195109,
+      "date": 133766402533455170
+    }
+  ]
+}
