@@ -1,0 +1,24 @@
+{
+  "serial_port": "COM3",
+  "serial_baudrate": 9600,
+  "button_mappings": {
+    "0_0": {
+      "plugin": "System",
+      "action": "open_task_manager",
+      "icon": "C:/Users/rajat/Desktop/gg/AUX 1.png",
+      "title": "Task"
+    },
+    "0_1": {
+      "plugin": "Application",
+      "action": "open_folder"
+    },
+    "0_2": {
+      "plugin": "Application",
+      "action": "open_file"
+    }
+  },
+  "pages": {},
+  "theme": "dark",
+  "auto_detect_serial": true,
+  "button_configs": {}
+}

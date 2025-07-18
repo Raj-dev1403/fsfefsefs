@@ -1,0 +1,5 @@
+psutil>=5.9.0
+py-cpuinfo>=9.0.0
+wmi>=1.5.1
+# Optional dependencies
+# SimConnect>=0.4.19  # For MSFS 2020/2024 integration

@@ -1,0 +1,138 @@
+{
+  "_default": {
+    "fields": [
+      {"name": "title", "type": "text", "label": "Title"},
+      {"name": "icon", "type": "icon", "label": "Icon"},
+      {"name": "description", "type": "textarea", "label": "Description"},
+      {"name": "nextion_page_id", "type": "text", "label": "Nextion Page ID", "placeholder": "00", "default": "00"},
+      {"name": "nextion_button_id", "type": "text", "label": "Nextion Button ID", "placeholder": "01", "default": "01"},
+      {"name": "enabled", "type": "checkbox", "label": "Enabled", "default": true}
+    ]
+  },
+  "Application": {
+    "launch_app": {
+      "fields": [
+        {"name": "title", "type": "text", "label": "Title"},
+        {"name": "icon", "type": "icon", "label": "Icon"},
+        {"name": "path", "type": "file", "label": "Application Path", "file_types": "exe,app,sh"},
+        {"name": "arguments", "type": "text", "label": "Arguments"},
+        {"name": "working_directory", "type": "folder", "label": "Working Directory"},
+        {"name": "run_as_admin", "type": "checkbox", "label": "Run as Administrator", "default": false},
+        {"name": "minimize_window", "type": "checkbox", "label": "Minimize Window", "default": false},
+        {"name": "nextion_page_id", "type": "text", "label": "Nextion Page ID", "placeholder": "00", "default": "00"},
+        {"name": "nextion_button_id", "type": "text", "label": "Nextion Button ID", "placeholder": "01", "default": "01"}
+      ]
+    },
+    "open_file": {
+      "fields": [
+        {"name": "title", "type": "text", "label": "Title"},
+        {"name": "icon", "type": "icon", "label": "Icon"},
+        {"name": "file_path", "type": "file", "label": "File Path"},
+        {"name": "application", "type": "text", "label": "Default Application"},
+        {"name": "nextion_page_id", "type": "text", "label": "Nextion Page ID", "placeholder": "00", "default": "00"},
+        {"name": "nextion_button_id", "type": "text", "label": "Nextion Button ID", "placeholder": "01", "default": "01"}
+      ]
+    },
+    "open_folder": {
+      "fields": [
+        {"name": "title", "type": "text", "label": "Title"},
+        {"name": "icon", "type": "icon", "label": "Icon"},
+        {"name": "folder_path", "type": "folder", "label": "Folder Path"},
+        {"name": "new_window", "type": "checkbox", "label": "New Window", "default": true},
+        {"name": "nextion_page_id", "type": "text", "label": "Nextion Page ID", "placeholder": "00", "default": "00"},
+        {"name": "nextion_button_id", "type": "text", "label": "Nextion Button ID", "placeholder": "01", "default": "01"}
+      ]
+    }
+  },
+  "AAO": {
+    "input": {
+      "fields": [
+        {"name": "title", "type": "text", "label": "Title"},
+        {"name": "type", "type": "radio", "label": "Type", "options": ["Set", "Adjust", "Mute", "Add"]},
+        {"name": "input", "type": "dropdown", "label": "Input", "options": ["SFX", "Music", "Game", "Voice", "Aux"]},
+        {"name": "output", "type": "dropdown", "label": "Output", "options": ["Monitor Mix", "Stream Mix", "All", "Headphones"]},
+        {"name": "color_icon", "type": "icon", "label": "Color Icon"},
+        {"name": "volume_level", "type": "slider", "label": "Volume Level", "min": 0, "max": 100, "default": 50},
+        {"name": "fade_duration", "type": "number", "label": "Fade Duration (ms)", "min": 0, "max": 5000, "default": 0},
+        {"name": "nextion_page_id", "type": "text", "label": "Nextion Page ID", "placeholder": "00", "default": "00"},
+        {"name": "nextion_button_id", "type": "text", "label": "Nextion Button ID", "placeholder": "01", "default": "01"},
+        {"name": "enabled", "type": "checkbox", "label": "Enabled", "default": true}
+      ]
+    },
+    "script": {
+      "fields": [
+        {"name": "title", "type": "text", "label": "Title"},
+        {"name": "icon", "type": "icon", "label": "Icon"},
+        {"name": "aircraft", "type": "dropdown", "label": "Aircraft", "options": ["A320", "A330", "B737", "B777", "B787"]},
+        {"name": "system", "type": "dropdown", "label": "System", "options": ["Electrical", "Hydraulic", "Fuel", "Engine", "APU"]},
+        {"name": "script_name", "type": "text", "label": "Script Name"},
+        {"name": "script_code", "type": "textarea", "label": "Script Code"},
+        {"name": "nextion_page_id", "type": "text", "label": "Nextion Page ID", "placeholder": "00", "default": "00"},
+        {"name": "nextion_button_id", "type": "text", "label": "Nextion Button ID", "placeholder": "01", "default": "01"},
+        {"name": "auto_execute", "type": "checkbox", "label": "Auto Execute", "default": false},
+        {"name": "confirmation_required", "type": "checkbox", "label": "Confirmation Required", "default": false}
+      ]
+    }
+  },
+  "System": {
+    "shutdown": {
+      "fields": [
+        {"name": "title", "type": "text", "label": "Title"},
+        {"name": "icon", "type": "icon", "label": "Icon"},
+        {"name": "delay_seconds", "type": "number", "label": "Delay (seconds)", "min": 0, "max": 300, "default": 0},
+        {"name": "force", "type": "checkbox", "label": "Force Shutdown", "default": false},
+        {"name": "confirmation", "type": "checkbox", "label": "Require Confirmation", "default": true},
+        {"name": "nextion_page_id", "type": "text", "label": "Nextion Page ID", "placeholder": "00", "default": "00"},
+        {"name": "nextion_button_id", "type": "text", "label": "Nextion Button ID", "placeholder": "01", "default": "01"}
+      ]
+    },
+    "restart": {
+      "fields": [
+        {"name": "title", "type": "text", "label": "Title"},
+        {"name": "icon", "type": "icon", "label": "Icon"},
+        {"name": "delay_seconds", "type": "number", "label": "Delay (seconds)", "min": 0, "max": 300, "default": 0},
+        {"name": "force", "type": "checkbox", "label": "Force Restart", "default": false},
+        {"name": "nextion_page_id", "type": "text", "label": "Nextion Page ID", "placeholder": "00", "default": "00"},
+        {"name": "nextion_button_id", "type": "text", "label": "Nextion Button ID", "placeholder": "01", "default": "01"}
+      ]
+    }
+  },
+  "Multimedia": {
+    "volume_control": {
+      "fields": [
+        {"name": "title", "type": "text", "label": "Title"},
+        {"name": "icon", "type": "icon", "label": "Icon"},
+        {"name": "action", "type": "dropdown", "label": "Action", "options": ["Set", "Increase", "Decrease", "Mute", "Unmute"]},
+        {"name": "volume_level", "type": "slider", "label": "Volume Level", "min": 0, "max": 100, "default": 50},
+        {"name": "step_size", "type": "number", "label": "Step Size", "min": 1, "max": 20, "default": 5},
+        {"name": "target_device", "type": "dropdown", "label": "Target Device", "options": ["Default", "Speakers", "Headphones", "All"]},
+        {"name": "nextion_page_id", "type": "text", "label": "Nextion Page ID", "placeholder": "00", "default": "00"},
+        {"name": "nextion_button_id", "type": "text", "label": "Nextion Button ID", "placeholder": "01", "default": "01"}
+      ]
+    },
+    "media_control": {
+      "fields": [
+        {"name": "title", "type": "text", "label": "Title"},
+        {"name": "icon", "type": "icon", "label": "Icon"},
+        {"name": "action", "type": "dropdown", "label": "Action", "options": ["Play", "Pause", "Stop", "Next", "Previous", "Toggle"]},
+        {"name": "application", "type": "dropdown", "label": "Application", "options": ["Default", "Spotify", "VLC", "Windows Media Player", "iTunes"]},
+        {"name": "nextion_page_id", "type": "text", "label": "Nextion Page ID", "placeholder": "00", "default": "00"},
+        {"name": "nextion_button_id", "type": "text", "label": "Nextion Button ID", "placeholder": "01", "default": "01"}
+      ]
+    }
+  },
+  "Website": {
+    "open_url": {
+      "fields": [
+        {"name": "title", "type": "text", "label": "Title"},
+        {"name": "icon", "type": "icon", "label": "Icon"},
+        {"name": "url", "type": "text", "label": "URL", "placeholder": "https://example.com"},
+        {"name": "browser", "type": "dropdown", "label": "Browser", "options": ["Default", "Chrome", "Firefox", "Edge", "Safari"]},
+        {"name": "new_tab", "type": "checkbox", "label": "New Tab", "default": true},
+        {"name": "incognito", "type": "checkbox", "label": "Incognito/Private", "default": false},
+        {"name": "nextion_page_id", "type": "text", "label": "Nextion Page ID", "placeholder": "00", "default": "00"},
+        {"name": "nextion_button_id", "type": "text", "label": "Nextion Button ID", "placeholder": "01", "default": "01"}
+      ]
+    }
+  }
+} 

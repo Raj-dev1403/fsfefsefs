@@ -1,0 +1,52 @@
+{
+  "NAV_LIGHTS_ON": {
+    "type": "event",
+    "name": "TOGGLE_NAV_LIGHTS",
+    "description": "Turn on navigation lights"
+  },
+  "SET_STD_BARO": {
+    "type": "event",
+    "name": "KOHLSMAN_SET_STD",
+    "description": "Set barometer to standard pressure (29.92)"
+  },
+  "GET_ALTITUDE": {
+    "type": "variable",
+    "name": "INDICATED ALTITUDE",
+    "description": "Get current altitude"
+  },
+  "LANDING_LIGHTS_TOGGLE": {
+    "type": "event",
+    "name": "LANDING_LIGHTS_TOGGLE",
+    "description": "Toggle landing lights"
+  },
+  "PARKING_BRAKES": {
+    "type": "event",
+    "name": "PARKING_BRAKES",
+    "description": "Toggle parking brakes"
+  },
+  "FLAPS_UP": {
+    "type": "event",
+    "name": "FLAPS_UP",
+    "description": "Raise flaps fully"
+  },
+  "FLAPS_DOWN": {
+    "type": "event",
+    "name": "FLAPS_DOWN",
+    "description": "Lower flaps fully"
+  },
+  "TOGGLE_AVIONICS": {
+    "type": "event",
+    "name": "TOGGLE_AVIONICS_MASTER",
+    "description": "Toggle avionics master switch"
+  },
+  "TOGGLE_MASTER_BATTERY": {
+    "type": "event",
+    "name": "TOGGLE_MASTER_BATTERY",
+    "description": "Toggle master battery switch"
+  },
+  "TOGGLE_MASTER_ALTERNATOR": {
+    "type": "event",
+    "name": "TOGGLE_MASTER_ALTERNATOR",
+    "description": "Toggle master alternator switch"
+  }
+}

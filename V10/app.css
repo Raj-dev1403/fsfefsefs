@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stream Deck Interface CSS</title>
+    <style>
+        /* Stream Deck Interface CSS - Exact Replica */
+        
+        /* Root Variables for Stream Deck Colors */
+        :root {
+            --background-primary: #2d2d2d;
+            --background-secondary: #3a3a3a;
+            --background-tertiary: #404040;
+            --background-darker: #1e1e1e;
+            --background-lighter: #4a4a4a;
+            
+            --text-primary: #ffffff;
+            --text-secondary: #cccccc;
+            --text-muted: #888888;
+            
+            --button-background: #2d2d2d;
+            --button-hover: #3a3a3a;
+            --button-border: #555555;
+            --button-radius: 8px;
+            
+            --accent-blue: #0078d4;
+            --accent-blue-hover: #106ebe;
+            --accent-green: #00a86b;
+            
+            --search-background: #404040;
+            --search-border: #555555;
+            
+            --scrollbar-track: #3a3a3a;
+            --scrollbar-thumb: #555555;
+            --scrollbar-thumb-hover: #666666;
+            
+            --grid-gap: 8px;
+            --button-size: 80px;
+            --sidebar-width: 300px;
+            --property-height: 300px;
+        }
+        
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-primary);
+            color: var(--text-primary);
+            font-size: 14px;
+            overflow: hidden;
+        }
+        
+        /* Main Container */
+        .main-container {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+        }
+        
+        /* Left Panel - Stream Deck Grid */
+        .left-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--background-primary);
+            padding: 20px;
+        }
+        
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 10px 0;
+        }
+        
+        .profile-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .profile-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .profile-dropdown {
+            background-color: var(--background-secondary);
+            border: 1px solid var(--button-border);
+            border-radius: 4px;
+            color: var(--text-primary);
+            padding: 8px 12px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        .header-icons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .header-icon {
+            width: 32px;
+            height: 32px;
+            background-color: var(--background-secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .header-icon:hover {
+            background-color: var(--button-hover);
+        }
+        
+        /* Stream Deck Grid */
+        .streamdeck-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            gap: var(--grid-gap);
+            max-width: 600px;
+            margin: 0 auto;
+            aspect-ratio: 6/4;
+        }
+        
+        .streamdeck-button {
+            background-color: var(--button-background);
+            border: 2px solid var(--button-border);
+            border-radius: var(--button-radius);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            min-height: 80px;
+        }
+        
+        .streamdeck-button:hover {
+            border-color: var(--accent-blue);
+            background-color: var(--button-hover);
+        }
+        
+        .streamdeck-button.active {
+            border-color: var(--accent-blue);
+            background-color: var(--background-secondary);
+        }
+        
+        .streamdeck-button.has-content {
+            background-color: var(--background-darker);
+        }
+        
+        .button-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 8px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 4px;
+        }
+        
+        .button-title {
+            font-size: 11px;
+            color: var(--text-secondary);
+            text-align: center;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        /* Page Navigation */
+        .page-navigation {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .page-btn {
+            background-color: var(--background-secondary);
+            border: 1px solid var(--button-border);
+            border-radius: 4px;
+            color: var(--text-primary);
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .page-btn:hover {
+            background-color: var(--button-hover);
+        }
+        
+        .page-btn.active {
+            background-color: var(--accent-blue);
+            border-color: var(--accent-blue);
+        }
+        
+        /* Right Panel - Actions & Properties */
+        .right-panel {
+            width: var(--sidebar-width);
+            background-color: var(--background-secondary);
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid var(--button-border);
+        }
+        
+        /* Search Bar */
+        .search-container {
+            padding: 15px;
+            border-bottom: 1px solid var(--button-border);
+        }
+        
+        .search-bar {
+            width: 100%;
+            background-color: var(--search-background);
+            border: 1px solid var(--search-border);
+            border-radius: 4px;
+            padding: 10px 12px;
+            color: var(--text-primary);
+            font-size: 14px;
+            outline: none;
+        }
+        
+        .search-bar:focus {
+            border-color: var(--accent-blue);
+        }
+        
+        .search-bar::placeholder {
+            color: var(--text-muted);
+        }
+        
+        /* Actions Panel */
+        .actions-panel {
+            flex: 1;
+            overflow-y: auto;
+            padding: 0;
+        }
+        
+        .action-category {
+            border-bottom: 1px solid var(--button-border);
+        }
+        
+        .category-header {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            background-color: var(--background-secondary);
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .category-header:hover {
+            background-color: var(--background-tertiary);
+        }
+        
+        .category-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .category-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        
+        .category-arrow {
+            margin-left: auto;
+            transform: rotate(0deg);
+            transition: transform 0.2s;
+        }
+        
+        .category-header.expanded .category-arrow {
+            transform: rotate(90deg);
+        }
+        
+        .category-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .category-content.expanded {
+            max-height: 500px;
+        }
+        
+        .action-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            margin-left: 20px;
+            cursor: grab;
+            transition: background-color 0.2s;
+        }
+        
+        .action-item:hover {
+            background-color: var(--background-tertiary);
+        }
+        
+        .action-item.dragging {
+            opacity: 0.5;
+            cursor: grabbing;
+        }
+        
+        .action-icon {
+            width: 32px;
+            height: 32px;
+            margin-right: 10px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 4px;
+        }
+        
+        .action-title {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        
+        .new-badge {
+            background-color: var(--accent-blue);
+            color: white;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 10px;
+            margin-left: auto;
+            font-weight: 500;
+        }
+        
+        /* Property Inspector */
+        .property-inspector {
+            height: var(--property-height);
+            background-color: var(--background-primary);
+            border-top: 1px solid var(--button-border);
+            padding: 15px;
+            overflow-y: auto;
+        }
+        
+        .property-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .property-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 4px;
+        }
+        
+        .property-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .property-field {
+            margin-bottom: 15px;
+        }
+        
+        .property-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        .property-input {
+            width: 100%;
+            background-color: var(--background-secondary);
+            border: 1px solid var(--button-border);
+            border-radius: 4px;
+            padding: 8px 10px;
+            color: var(--text-primary);
+            font-size: 13px;
+            outline: none;
+        }
+        
+        .property-input:focus {
+            border-color: var(--accent-blue);
+        }
+        
+        .property-dropdown {
+            width: 100%;
+            background-color: var(--background-secondary);
+            border: 1px solid var(--button-border);
+            border-radius: 4px;
+            padding: 8px 10px;
+            color: var(--text-primary);
+            font-size: 13px;
+            cursor: pointer;
+        }
+        
+        .property-slider {
+            width: 100%;
+            height: 4px;
+            background-color: var(--button-border);
+            border-radius: 2px;
+            outline: none;
+            -webkit-appearance: none;
+        }
+        
+        .property-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            background-color: var(--accent-blue);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .property-slider::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            background-color: var(--accent-blue);
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+        }
+        
+        /* Scrollbar Styles */
+        .actions-panel::-webkit-scrollbar,
+        .property-inspector::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .actions-panel::-webkit-scrollbar-track,
+        .property-inspector::-webkit-scrollbar-track {
+            background: var(--scrollbar-track);
+        }
+        
+        .actions-panel::-webkit-scrollbar-thumb,
+        .property-inspector::-webkit-scrollbar-thumb {
+            background: var(--scrollbar-thumb);
+            border-radius: 4px;
+        }
+        
+        .actions-panel::-webkit-scrollbar-thumb:hover,
+        .property-inspector::-webkit-scrollbar-thumb:hover {
+            background: var(--scrollbar-thumb-hover);
+        }
+        
+        /* Drag and Drop Styles */
+        .drop-zone {
+            border: 2px dashed var(--accent-blue);
+            background-color: rgba(0, 120, 212, 0.1);
+        }
+        
+        .drag-preview {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.8;
+            transform: rotate(-5deg);
+        }
+        
+        /* Utility Classes */
+        .hidden {
+            display: none !important;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .slide-up {
+            animation: slideUp 0.3s ease;
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .right-panel {
+                width: 280px;
+            }
+            
+            .streamdeck-grid {
+                max-width: 480px;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .main-container {
+                flex-direction: column;
+            }
+            
+            .right-panel {
+                width: 100%;
+                height: 400px;
+            }
+            
+            .streamdeck-grid {
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+            }
+        }
+        
+        /* Dark Theme Enhancements */
+        .dark-theme {
+            --background-primary: #1e1e1e;
+            --background-secondary: #2d2d2d;
+            --background-tertiary: #3a3a3a;
+            --background-darker: #141414;
+        }
+        
+        /* Button Content Styles */
+        .button-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: 8px;
+        }
+        
+        .button-preview {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        /* Special Button Types */
+        .button-cpu {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        }
+        
+        .button-percentage {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+        
+        .button-media {
+            background: linear-gradient(45deg, #f093fb, #f5576c);
+        }
+        
+        .button-system {
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+        }
+        
+        /* Icon Styles for Different Apps */
+        .icon-discord {
+            background-color: #5865f2;
+        }
+        
+        .icon-obs {
+            background-color: #1f2937;
+        }
+        
+        .icon-spotify {
+            background-color: #1db954;
+        }
+        
+        .icon-twitch {
+            background-color: #9146ff;
+        }
+        
+        .icon-youtube {
+            background-color: #ff0000;
+        }
+        
+        .icon-twitter {
+            background-color: #1da1f2;
+        }
+        
+        .icon-photoshop {
+            background-color: #001e36;
+        }
+        
+        .icon-vscode {
+            background-color: #007acc;
+        }
+        
+        /* Loading Animation */
+        .loading-spinner {
+            border: 2px solid var(--button-border);
+            border-top: 2px solid var(--accent-blue);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Context Menu */
+        .context-menu {
+            position: fixed;
+            background-color: var(--background-secondary);
+            border: 1px solid var(--button-border);
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            min-width: 150px;
+        }
+        
+        .context-menu-item {
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 13px;
+            color: var(--text-primary);
+            transition: background-color 0.2s;
+        }
+        
+        .context-menu-item:hover {
+            background-color: var(--background-tertiary);
+        }
+        
+        .context-menu-separator {
+            height: 1px;
+            background-color: var(--button-border);
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Left Panel - Stream Deck Grid -->
+        <div class="left-panel">
+            <div class="header">
+                <div class="profile-selector">
+                    <div class="profile-title">Stream Deck</div>
+                    <select class="profile-dropdown">
+                        <option>Default Profile</option>
+                        <option>Gaming Profile</option>
+                        <option>Streaming Profile</option>
+                    </select>
+                </div>
+                <div class="header-icons">
+                    <div class="header-icon">🔔</div>
+                    <div class="header-icon">🔄</div>
+                    <div class="header-icon">⚙️</div>
+                    <div class="header-icon">👤</div>
+                </div>
+            </div>
+            
+            <div class="streamdeck-grid">
+                <!-- Grid buttons will be dynamically generated -->
+                <div class="streamdeck-button">
+                    <div class="button-content">
+                        <div class="button-icon" style="background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="green"><rect width="24" height="24" rx="4"/><text x="12" y="16" text-anchor="middle" fill="white" font-size="10">💻</text></svg>');"></div>
+                        <div class="button-title">Battery</div>
+                    </div>
+                </div>
+                
+                <div class="streamdeck-button has-content">
+                    <div class="button-content">
+                        <div class="button-icon" style="background-color: #ff6b6b; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">🔧</div>
+                        <div class="button-title">Tools</div>
+                    </div>
+                </div>
+                
+                <div class="streamdeck-button"></div>
+                <div class="streamdeck-button"></div>
+                <div class="streamdeck-button"></div>
+                <div class="streamdeck-button"></div>
+                
+                <div class="streamdeck-button">
+                    <div class="button-content">
+                        <div class="button-icon" style="background-color: #4facfe; display: flex; align-items: center; justify-content: center; color: white;">📁</div>
+                        <div class="button-title">Folder</div>
+                    </div>
+                </div>
+                
+                <div class="streamdeck-button">
+                    <div class="button-content">
+                        <div class="button-icon" style="background-color: #1f2937; display: flex; align-items: center; justify-content: center; color: white;">✖️</div>
+                        <div class="button-title">Normal</div>
+                    </div>
+                </div>
+                
+                <div class="streamdeck-button">
+                    <div class="button-content">
+                        <div class="button-icon" style="background-color: #333; display: flex; align-items: center; justify-content: center; color: white;">⚪</div>
+                        <div class="button-title">Calculator</div>
+                    </div>
+                </div>
+                
+                <div class="streamdeck-button button-percentage">
+                    <div class="button-content">
+                        <div style="color: white; font-size: 18px; font-weight: bold;">11%</div>
+                    </div>
+                </div>
+                
+                <div class="streamdeck-button"></div>
+                <div class="streamdeck-button"></div>
+                
+                <div class="streamdeck-button">
+                    <div class="button-content">
+                        <div class="button-icon" style="background-color: #1db954; display: flex; align-items: center; justify-content: center; color: white;">🍎</div>
+                        <div class="button-title">Apple</div>
+                    </div>
+                </div>
+                
+                <div class="streamdeck-button">
+                    <div class="button-content">
+                        <div class="button-icon" style="background-color: #667eea; display: flex; align-items: center; justify-content: center; color: white;">▶️</div>
+                        <div class="button-title">Prompt</div>
+                    </div>
+                </div>
+                
+                <div class="streamdeck-button">
+                    <div class="button-content">
+                        <div class="button-icon" style="background-color: #ff8c00; display: flex; align-items: center; justify-content: center; color: white;">🚧</div>
+                        <div class="button-title">VLC</div>
+                    </div>
+                </div>
+                
+                <div class="streamdeck-button">
+                    <div class="button-content">
+                        <div class="button-icon" style="background-color: #333; display: flex; align-items: center; justify-content: center; color: white;">📚</div>
+                        <div class="button-title">Library</div>
+                    </div>
+                </div>
+                
+                <div class="streamdeck-button button-percentage">
+                    <div class="button-content">
+                        <div style="color: white; font-size: 18px; font-weight: bold;">11%</div>
+                    </div>
+                </div>
+                
+                <div class="streamdeck-button"></div>
+                <div class="streamdeck-button"></div>
+                <div class="streamdeck-button"></div>
+                <div class="streamdeck-button"></div>
+                <div class="streamdeck-button"></div>
+                <div class="streamdeck-button"></div>
+                <div class="streamdeck-button"></div>
+            </div>
+            
+            <div class="page-navigation">
+                <button class="page-btn">◀</button>
+                <button class="page-btn active">1</button>
+                <button class="page-btn">▶</button>
+                <button class="page-btn">+</button>
+            </div>
+        </div>
+        
+        <!-- Right Panel - Actions & Properties -->
+        <div class="right-panel">
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Search">
+            </div>
+            
+            <div class="actions-panel">
+                <div class="action-category">
+                    <div class="category-header expanded">
+                        <div class="category-icon">⚡</div>
+                        <div class="category-title">Multi Action</div>
+                        <div class="category-arrow">▶</div>
+                    </div>
+                    <div class="category-content expanded">
+                        <div class="action-item" draggable="true">
+                            <div class="action-icon" style="background-color: #f093fb; display: flex; align-items: center; justify-content: center; color: white;">📂</div>
+                            <div class="action-title">Open</div>
+                        </div>
+                        <div class="action-item" draggable="true">
+                            <div class="action-icon" style="background-color: #667eea; display: flex; align-items: center; justify-content: center; color: white;">📱</div>
+                            <div class="action-title">Open Application</div>
+                        </div>
+                        <div class="action-item" draggable="true">
+                            <div class="action-icon" style="background-color: #ff4757; display: flex; align-items: center; justify-content: center; color: white;">❌</div>
+                            <div class="action-title">Close</div>
+                        </div>
+                        <div class="action-item" draggable="true">
+                            <div class="action-icon" style="background-color: #2ecc71; display: flex; align-items: center; justify-content: center; color: white;">📝</div>
+                            <div class="action-title">Text</div>
+                        </div>
+                        <div class="action-item" draggable="true">
+                            <div class="action-icon" style="background-color: #e74c3c; display: flex; align-items: center; justify-content: center; color: white;">🎵</div>
+                            <div class="action-title">Multimedia</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="action-category">
+                    <div class="category-header">
+                        <div class="category-icon">🎨</div>
+                        <div class="category-title">Custom</div>
+                        <div class="category-arrow">▶</div>
+                    </div>
+                    <div class="category-content">
+                        <div class="action-item" draggable="true">
+                            <div class="action-icon" style="background-color: #3498db; display: flex; align-items: center; justify-content: center; color: white;">🖥️</div>
+                            <div class="action-title">CPU</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="action-category">
+                    <div class="category-header">
+                        <div class="category-icon" style="background-color: #001e36;">🎨</div>
+                        <div class="category-title">Adobe Photoshop</div>
+                        <div class="category-arrow">▶</div>
+                    </div>
+                </div>
+                
+                <div class="action-category">
+                    <div class="category-header">
+                        <div class="category-icon" style="background-color: #4a90e2;">🔧</div>
+                        <div class="category-title">Lorby-SI AxisAndOhs</div>
+                        <div class="new-badge">NEW</div>
+                        <div class="category-arrow">▶</div>
+                    </div>
+                </div>
+                
+                <div class="action-category">
+                    <div class="category-header">
+                        <div class="category-icon" style="background-color: #007acc;">💻</div>
+                        <div class="category-title">Visual Studio Code</div>
+                        <div class="category-arrow">▶</div>
+                    </div>
+                </div>
+                
+                <div class="action-category">
+                    <div class="category-header">
+                        <div class="category-icon" style="background-color: #ff6b6b;">🔊</div>
+                        <div class="category-title">Volume Controller</div>
+                        <div class="new-badge">NEW</div>
+                        <div class="category-arrow">▶</div>
+                    </div>
+                </div>
+                
+                <div class="action-category">
+                    <div class="category-header">
+                        <div class="category-icon" style="background-color: #ff0000;">📺</div>
+                        <div class="category-title">YouTube</div>
+                        <div class="category-arrow">▶</div>
+                    </div>
+                    <div class="category-content">
+                        <div class="action-item" draggable="true">
+                            <div class="action-icon" style="background-color: #ff0000; display: flex; align-items: center; justify-content: center; color: white;">💬</div>
+                            <div class="action-title">Chat Message</div>
+                        </div>
+                        <div class="action-item" draggable="true">
+                            <div class="action-icon" style="background-color: #ff6b6b; display: flex; align-items: center; justify-content: center; color: white;">👥</div>
+                            <div class="action-title">Viewers</div>
+                        </div>
+                        <div class="action-item" draggable="true">
+                            <div class="action-icon" style="background-color: #4ecdc4; display: flex; align-items: center; justify-content: center; color: white;">📺</div>
+                            <div class="action-title">Play Ad</div>
+                        </div>
+                        <div class="action-item" draggable="true">
+                            <div class="action-icon" style="background-color: #667eea; display: flex; align-items: center; justify-content: center; color: white;">🎬</div>
+                            <div class="action-title">Start/Stop Stream</div>
+                        </div>
+                        <div class="action-item" draggable="true">
+                            <div class="action-icon" style="background-color: #764ba2; display: flex; align-items: center; justify-content: center; color: white;">📊</div>
+                            <div class="action-title">Open Dashboard</div>
+                        </div>
+                        <div class="action-item" draggable="true">
+                            <div class="action-icon" style="background-color: #f093fb; display: flex; align-items: center; justify-content: center; color: white;">⏸️</div>
+                            <div class="action-title">Pause Ads</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="property-inspector">
+                <div class="property-header">
+                    <div class="property-icon" style="background-color: #007acc; display: flex; align-items: center; justify-content: center; color: white;">📝</div>
+                    <div class="property-title">Insert Snippet</div>
+                    <div style="margin-left: auto;">
+                        <button style="background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 16px;">🗑️</button>
+                    </div>
+                </div>
+                
+                <div class="property-field">
+                    <label class="property-label">Title:</label>
+                    <input type="text" class="property-input" value="GETTING STARTED" placeholder="Enter title">
+                </div>
+                
+                <div class="property-field">
+                    <label class="property-label">Name (not prefix):</label>
+                    <input type="text" class="property-input" placeholder="Enter name">
+                </div>
+                
+                <div class="property-field">
+                    <label class="property-label">Code Snippet:</label>
+                    <textarea class="property-input" rows="4" placeholder="Enter code snippet">"My Hello World (THIS IS THE NAME)": {
+    "prefix": "a-hello-world",
+    "body": "Hello World."
+}</textarea>
+                </div>
+                
+                <div class="property-field">
+                    <label class="property-label">Icon:</label>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <div class="property-icon" style="background-color: #007acc; display: flex; align-items: center; justify-content: center; color: white;">📝</div>
+                        <select class="property-dropdown">
+                            <option>Set from File</option>
+                            <option>Paste from Clipboard</option>
+                            <option>Create New Icon</option>
+                            <option>Open Stream Deck Icon Library</option>
+                            <option>Reset to Default</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="property-field">
+                    <label class="property-label">Blend Mode:</label>
+                    <select class="property-dropdown">
+                        <option>Normal</option>
+                        <option>Multiply</option>
+                        <option>Screen</option>
+                        <option>Overlay</option>
+                        <option>Soft Light</option>
+                        <option>Hard Light</option>
+                    </select>
+                </div>
+                
+                <div class="property-field">
+                    <label class="property-label">Opacity: <span style="color: var(--text-muted);">0%</span></label>
+                    <input type="range" class="property-slider" min="0" max="100" value="0">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // JavaScript for drag and drop functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Category toggle functionality
+            const categoryHeaders = document.querySelectorAll('.category-header');
+            categoryHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const arrow = this.querySelector('.category-arrow');
+                    
+                    this.classList.toggle('expanded');
+                    content.classList.toggle('expanded');
+                    
+                    if (content.classList.contains('expanded')) {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                    } else {
+                        content.style.maxHeight = '0';
+                    }
+                });
+            });
+            
+            // Drag and drop functionality
+            const actionItems = document.querySelectorAll('.action-item');
+            const streamdeckButtons = document.querySelectorAll('.streamdeck-button');
+            
+            actionItems.forEach(item => {
+                item.addEventListener('dragstart', function(e) {
+                    this.classList.add('dragging');
+                    e.dataTransfer.setData('text/plain', this.querySelector('.action-title').textContent);
+                    e.dataTransfer.setData('text/icon', this.querySelector('.action-icon').style.backgroundColor);
+                });
+                
+                item.addEventListener('dragend', function() {
+                    this.classList.remove('dragging');
+                });
+            });
+            
+            streamdeckButtons.forEach(button => {
+                button.addEventListener('dragover', function(e) {
+                    e.preventDefault();
+                    this.classList.add('drop-zone');
+                });
+                
+                button.addEventListener('dragleave', function() {
+                    this.classList.remove('drop-zone');
+                });
+                
+                button.addEventListener('drop', function(e) {
+                    e.preventDefault();
+                    this.classList.remove('drop-zone');
+                    
+                    const actionTitle = e.dataTransfer.getData('text/plain');
+                    const iconColor = e.dataTransfer.getData('text/icon');
+                    
+                    // Update button content
+                    this.innerHTML = `
+                        <div class="button-content">
+                            <div class="button-icon" style="background-color: ${iconColor}; display: flex; align-items: center; justify-content: center; color: white;">📝</div>
+                            <div class="button-title">${actionTitle}</div>
+                        </div>
+                    `;
+                    this.classList.add('has-content');
+                });
+            });
+            
+            // Button click functionality
+            streamdeckButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    streamdeckButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Update property inspector based on button content
+                    updatePropertyInspector(this);
+                });
+            });
+            
+            function updatePropertyInspector(button) {
+                const propertyInspector = document.querySelector('.property-inspector');
+                const buttonTitle = button.querySelector('.button-title');
+                
+                if (buttonTitle) {
+                    const title = buttonTitle.textContent;
+                    const titleInput = document.querySelector('.property-input');
+                    if (titleInput) {
+                        titleInput.value = title;
+                    }
+                }
+            }
+            
+            // Search functionality
+            const searchBar = document.querySelector('.search-bar');
+            searchBar.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                const actionItems = document.querySelectorAll('.action-item');
+                const categories = document.querySelectorAll('.action-category');
+                
+                actionItems.forEach(item => {
+                    const title = item.querySelector('.action-title').textContent.toLowerCase();
+                    const category = item.closest('.action-category');
+                    
+                    if (title.includes(searchTerm)) {
+                        item.style.display = 'flex';
+                        category.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+                
+                // Hide categories with no visible items
+                categories.forEach(category => {
+                    const visibleItems = category.querySelectorAll('.action-item:not([style*="display: none"])');
+                    if (visibleItems.length === 0 && searchTerm) {
+                        category.style.display = 'none';
+                    } else {
+                        category.style.display = 'block';
+                    }
+                });
+            });
+            
+            // Slider functionality
+            const sliders = document.querySelectorAll('.property-slider');
+            sliders.forEach(slider => {
+                slider.addEventListener('input', function() {
+                    const label = this.parentElement.querySelector('.property-label');
+                    const value = this.value;
+                    label.innerHTML = label.innerHTML.replace(/\d+%/, value + '%');
+                });
+            });
+        });
+    </script>
+</body>
+</html>icon" style="background-color: #4facfe; display: flex; align-items: center; justify-content: center; color: white;">⚡</div>
+                            <div class="action-title">Multi Action</div>
+                        </div>
+                        <div class="action-item" draggable="true">
+                            <div class="action-icon" style="background-color: #667eea; display: flex; align-items: center; justify-content: center; color: white;">🔀</div>
+                            <div class="action-title">Multi Action Switch</div>
+                        </div>
+                        <div class="action-item" draggable="true">
+                            <div class="action-icon" style="background-color: #764ba2; display: flex; align-items: center; justify-content: center; color: white;">🎲</div>
+                            <div class="action-title">Random Action</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="action-category">
+                    <div class="category-header">
+                        <div class="category-icon">🧭</div>
+                        <div class="category-title">Navigation</div>
+                        <div class="category-arrow">▶</div>
+                    </div>
+                    <div class="category-content">
+                        <div class="action-item" draggable="true">
+                            <div class="action-icon" style="background-color: #1db954; display: flex; align-items: center; justify-content: center; color: white;">🌐</div>
+                            <div class="action-title">Website</div>
+                        </div>
+                        <div class="action-item" draggable="true">
+                            <div class="action-icon" style="background-color: #ff6b6b; display: flex; align-items: center; justify-content: center; color: white;">🔄</div>
+                            <div class="action-title">Hotkey Switch</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="action-category">
+                    <div class="category-header">
+                        <div class="category-icon">🔊</div>
+                        <div class="category-title">Soundboard</div>
+                        <div class="category-arrow">▶</div>
+                    </div>
+                </div>
+                
+                <div class="action-category">
+                    <div class="category-header">
+                        <div class="category-icon">🎮</div>
+                        <div class="category-title">Stream Deck</div>
+                        <div class="category-arrow">▶</div>
+                    </div>
+                </div>
+                
+                <div class="action-category">
+                    <div class="category-header">
+                        <div class="category-icon">⚙️</div>
+                        <div class="category-title">System</div>
+                        <div class="category-arrow">▶</div>
+                    </div>
+                    <div class="category-content">
+                        <div class="action-item" draggable="true">
+                            <div class="action-icon" style="background-color: #007acc; display: flex; align-items: center; justify-content: center; color: white;">🌐</div>
+                            <div class="action-title">Website</div>
+                        </div>
+                        <div class="action-item" draggable="true">
+                            <div class="action-icon" style="background-color: #333; display: flex; align-items: center; justify-content: center; color: white;">🔥</div>
+                            <div class="action-title">Hotkey Switch</div>
+                        </div>
+                        <div class="action-item" draggable="true">
+                            <div class="action-icon" style="background-color: #4ecdc4; display: flex; align-items: center; justify-content: center; color: white;">⌨️</div>
+                            <div class="action-title">Hotkey</div>
+                        </div>
+                        <div class="action-item" draggable="true">
+                            <div class="action-

@@ -1,0 +1,190 @@
+[
+  {
+    "page": 0,
+    "button": 0,
+    "title": "Nav Lights",
+    "icon": "icons/light.svg",
+    "plugin": "MobiFlightMSFS",
+    "action": "Script: NAV_LIGHTS_ON",
+    "parameters": {
+      "value": 1
+    },
+    "nextion_id": "b0"
+  },
+  {
+    "page": 0,
+    "button": 1,
+    "title": "Landing Lights",
+    "icon": "icons/landing.svg",
+    "plugin": "MobiFlightMSFS",
+    "action": "Script: LANDING_LIGHTS_TOGGLE",
+    "parameters": {
+      "value": 1
+    },
+    "nextion_id": "b1"
+  },
+  {
+    "page": 0,
+    "button": 2,
+    "title": "Parking Brake",
+    "icon": "icons/brake.svg",
+    "plugin": "MobiFlightMSFS",
+    "action": "Script: PARKING_BRAKES",
+    "parameters": {
+      "value": 1
+    },
+    "nextion_id": "b2"
+  },
+  {
+    "page": 0,
+    "button": 3,
+    "title": "Flaps Up",
+    "icon": "icons/flaps_up.svg",
+    "plugin": "MobiFlightMSFS",
+    "action": "Script: FLAPS_UP",
+    "parameters": {
+      "value": 1
+    },
+    "nextion_id": "b3"
+  },
+  {
+    "page": 0,
+    "button": 4,
+    "title": "Flaps Down",
+    "icon": "icons/flaps_down.svg",
+    "plugin": "MobiFlightMSFS",
+    "action": "Script: FLAPS_DOWN",
+    "parameters": {
+      "value": 1
+    },
+    "nextion_id": "b4"
+  },
+  {
+    "page": 0,
+    "button": 5,
+    "title": "Avionics",
+    "icon": "icons/avionics.svg",
+    "plugin": "MobiFlightMSFS",
+    "action": "Script: TOGGLE_AVIONICS",
+    "parameters": {
+      "value": 1
+    },
+    "nextion_id": "b5"
+  },
+  {
+    "page": 0,
+    "button": 6,
+    "title": "Battery",
+    "icon": "icons/battery.svg",
+    "plugin": "MobiFlightMSFS",
+    "action": "Script: TOGGLE_MASTER_BATTERY",
+    "parameters": {
+      "value": 1
+    },
+    "nextion_id": "b6"
+  },
+  {
+    "page": 0,
+    "button": 7,
+    "title": "Alternator",
+    "icon": "icons/alternator.svg",
+    "plugin": "MobiFlightMSFS",
+    "action": "Script: TOGGLE_MASTER_ALTERNATOR",
+    "parameters": {
+      "value": 1
+    },
+    "nextion_id": "b7"
+  },
+  {
+    "page": 1,
+    "button": 0,
+    "title": "Cockpit View",
+    "icon": "icons/cockpit.svg",
+    "plugin": "MobiFlightMSFS",
+    "action": "CockpitView",
+    "parameters": {
+      "view_type": "COCKPIT"
+    },
+    "nextion_id": "b0"
+  },
+  {
+    "page": 1,
+    "button": 1,
+    "title": "External View",
+    "icon": "icons/external.svg",
+    "plugin": "MobiFlightMSFS",
+    "action": "CockpitView",
+    "parameters": {
+      "view_type": "EXTERNAL"
+    },
+    "nextion_id": "b1"
+  },
+  {
+    "page": 1,
+    "button": 2,
+    "title": "Std Baro",
+    "icon": "icons/baro.svg",
+    "plugin": "MobiFlightMSFS",
+    "action": "BaroSetting",
+    "parameters": {
+      "baro_value": "29.92"
+    },
+    "nextion_id": "b2"
+  },
+  {
+    "page": 1,
+    "button": 3,
+    "title": "Yaw Damper",
+    "icon": "icons/yaw.svg",
+    "plugin": "MobiFlightMSFS",
+    "action": "YawDamper",
+    "parameters": {
+      "state": true
+    },
+    "nextion_id": "b3"
+  },
+  {
+    "page": 1,
+    "button": 4,
+    "title": "Pitot Heat",
+    "icon": "icons/pitot.svg",
+    "plugin": "MobiFlightMSFS",
+    "action": "PitotHeat",
+    "parameters": {
+      "state": true
+    },
+    "nextion_id": "b4"
+  },
+  {
+    "page": 1,
+    "button": 5,
+    "title": "ATC Window",
+    "icon": "icons/atc.svg",
+    "plugin": "MobiFlightMSFS",
+    "action": "ATCControl",
+    "parameters": {
+      "state": true
+    },
+    "nextion_id": "b5"
+  },
+  {
+    "page": 1,
+    "button": 6,
+    "title": "Flashlight",
+    "icon": "icons/flashlight.svg",
+    "plugin": "MobiFlightMSFS",
+    "action": "Flashlight",
+    "parameters": {},
+    "nextion_id": "b6"
+  },
+  {
+    "page": 1,
+    "button": 7,
+    "title": "Weather",
+    "icon": "icons/weather.svg",
+    "plugin": "MobiFlightMSFS",
+    "action": "WeatherDisplay",
+    "parameters": {},
+    "nextion_id": "b7"
+  }
+]
