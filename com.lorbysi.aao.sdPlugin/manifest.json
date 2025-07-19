@@ -1,0 +1,248 @@
+{
+  "Actions": [
+    {
+      "Icon": "images/button",
+      "Name": "Button",
+      "States": [
+        {
+          "Image": "images/button",
+          "MultiActionImage": "images/button"
+        }
+      ],
+      "SupportedInMultiActions": false,
+      "Tooltip": "Button press",
+      "UUID": "com.lorby-si.aao.btn"
+    },
+    {
+      "Icon": "images/button",
+      "Name": "Event",
+      "States": [
+        {
+          "Image": "images/button",
+          "MultiActionImage": "images/button"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "Event trigger",
+      "UUID": "com.lorby-si.aao.event"
+    },
+    {
+      "Icon": "images/button",
+      "Name": "LVar Image",
+      "States": [
+        {
+          "Image": "images/blank",
+          "MultiActionImage": "images/blank"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "Displaying a Base64 LVar image",
+      "UUID": "com.lorby-si.aao.lvarimage"
+    },
+    {
+      "Icon": "images/button",
+      "Name": "MultiGauge",
+      "States": [
+        {
+          "Image": "images/button",
+          "MultiActionImage": "images/button"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "MultiGauge with images and text",
+      "UUID": "com.lorby-si.aao.multigauge"
+    },
+    {
+      "Icon": "images/button",
+      "Name": "MultiTileGauge",
+      "States": [
+        {
+          "Image": "images/button",
+          "MultiActionImage": "images/button"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "MultiGauge with images and text stretched over multiple buttons",
+      "UUID": "com.lorby-si.aao.multitilegauge"
+    },
+    {
+      "Icon": "images/buttonOnGreen",
+      "Name": "OnOff",
+      "States": [
+        {
+          "Image": "images/buttonOff",
+          "MultiActionImage": "images/buttonOff"
+        },
+        {
+          "Image": "images/buttonOnGreen",
+          "MultiActionImage": "images/buttonOnGreen"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "On/Off switch",
+      "UUID": "com.lorby-si.aao.onoff"
+    },
+    {
+      "Icon": "images/buttonOnGreen",
+      "Name": "OnOffEvent",
+      "States": [
+        {
+          "Image": "images/buttonOff",
+          "MultiActionImage": "images/buttonOff"
+        },
+        {
+          "Image": "images/buttonOnGreen",
+          "MultiActionImage": "images/buttonOnGreen"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "Forced On/Off events without return variable",
+      "UUID": "com.lorby-si.aao.dualevent"
+    },
+    {
+        "Icon": "images/Lorby_Standard_rotate_trans",
+        "Name": "Rotary Encoder",
+        "Controllers": ["Encoder"],
+        "Encoder": {
+            "layout": "$B1"
+        },
+        "States": [
+            {
+                "Image": "images/blank"
+            }
+        ],
+        "UUID": "com.lorby-si.aao.rotary",
+        "VisibleInActionsList": true,
+        "UserTitleEnabled" : true,
+        "SupportedInMultiActions": true
+    },
+    {
+        "Icon": "images/Lorby_Standard_rotate_trans",
+        "Name": "Rotary Encoder Canvas",
+        "Controllers": ["Encoder"],
+        "Encoder": {
+            "layout": "$A0"
+        },
+        "States": [
+            {
+                "Image": "images/blank"
+            }
+        ],
+        "UUID": "com.lorby-si.aao.rotarycanvas",
+        "VisibleInActionsList": true,
+        "UserTitleEnabled" : true,
+        "SupportedInMultiActions": true
+    },
+    {
+      "Icon": "images/button",
+      "Name": "SliderGauge",
+      "States": [
+        {
+          "Image": "images/button",
+          "MultiActionImage": "images/button"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "Sliding image gauge",
+      "UUID": "com.lorby-si.aao.slidergauge"
+    },
+    {
+      "Icon": "images/button",
+      "Name": "SteamGauge",
+      "States": [
+        {
+          "Image": "images/button",
+          "MultiActionImage": "images/button"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "Rotating gauge",
+      "UUID": "com.lorby-si.aao.steamgauge"
+    },
+    {
+      "Icon": "images/button",
+      "Name": "TextGauge",
+      "States": [
+        {
+          "Image": "images/button",
+          "MultiActionImage": "images/button"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "Display a variable value",
+      "UUID": "com.lorby-si.aao.gaugetext"
+    },
+    {
+      "Icon": "images/buttonOnGreen",
+      "Name": "Toggle",
+      "States": [
+        {
+          "Image": "images/buttonOff",
+          "MultiActionImage": "images/buttonOff"
+        },
+        {
+          "Image": "images/buttonOnGreen",
+          "MultiActionImage": "images/buttonOnGreen"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "Toggle switch",
+      "UUID": "com.lorby-si.aao.toggle"
+    },
+    {
+      "Icon": "images/button",
+      "Name": "Stream graphics to AAO FIP",
+      "States": [
+        {
+          "Image": "images/buttonOff",
+          "MultiActionImage": "images/buttonOff"
+        },
+        {
+          "Image": "images/buttonOnGreen",
+          "MultiActionImage": "images/buttonOnGreen"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "Press to toggle streaming",
+      "UUID": "com.lorby-si.aao.streamtoaao"
+    }
+  ], 
+  "ApplicationsToMonitor": {
+    "windows": [
+        "LorbyAxisAndOhs.exe",
+        "LorbyAxisAndOhs_MSFS.exe",
+        "LorbyAxisAndOhs_P3D_V2.exe",
+        "LorbyAxisAndOhs_P3D_V3.exe",
+        "LorbyAxisAndOhs_P3D_V4.exe",
+        "LorbyAxisAndOhs_P3D_V5.exe",
+        "LorbyAxisAndOhs_P3D_V6.exe",
+        "LorbyAxisAndOhs_SE.exe",
+        "LorbyAxisAndOhs_XPLANE.exe"
+    ]
+  },
+  "SDKVersion": 2,
+  "Author": "Lorby-SI", 
+  "CodePath": "code.html", 
+  "Description": "AxisAndOhs control integration", 
+  "Name": "AxisAndOhs Integration", 
+  "Icon": "images/aaoPluginIcon", 
+  "Category": "Lorby-SI AxisAndOhs",
+  "CategoryIcon": "images/aaoPluginIcon",
+  "PropertyInspectorPath": "pi/index.html",
+  "URL": "http://localhost:43380/webapi", 
+  "Version": "45.01",
+  "OS": [
+    {
+        "Platform": "mac", 
+        "MinimumVersion" : "10.11"
+    },
+    {
+        "Platform": "windows", 
+        "MinimumVersion" : "10"
+    }
+  ],
+  "Software": 
+    {
+        "MinimumVersion" : "4.1"
+    }
+}

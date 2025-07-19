@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "Digital";
+  src: url('fonts/digital.ttf') format("truetype");
+  font-style: normal; }
+  
+  @font-face {
+  font-family: "Quartz";
+  src: url('fonts/quartz.ttf') format("truetype");
+  font-style: normal; }
+  
+  
